@@ -1,0 +1,29 @@
+{
+    "name": "advance-wars-clone",
+    "description": "A simple clone of the Advance Wars series of games for the Game Boy Advance.",
+    "version": "0.0.0",
+    "license": "MIT",
+    "author": {
+        "name": "G'lek Tarssza",
+        "email": "glek@glektarssza.com",
+        "url": "http://glektarssza.com"
+    },
+    "contributors": [
+        {
+            "name": "G'lek Tarssza",
+            "email": "glek@glektarssza.com",
+            "url": "http://glektarssza.com"
+        },
+        {
+            "name": "Illyrian"
+        }
+    ],
+    "homepage": "https://glektarssza.github.io/advance-wars-clone",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/glektarssza/advance-wars-clone"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {}
+}
