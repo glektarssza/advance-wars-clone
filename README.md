@@ -2,6 +2,7 @@
 
 A simple clone of the Advance Wars series of games for the Game Boy Advance.
 
+<!-- omit from toc -->
 ## Table of Contents ##
 
 * [Advance Wars Clone](#advance-wars-clone)
