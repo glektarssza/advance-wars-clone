@@ -6,6 +6,7 @@ import ESLintWebpackPlugin from 'eslint-webpack-plugin';
 import ForkTSCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import path from 'path';
 import PugPlugin from 'pug-plugin';
+import TSConfigPathsWebpackPlugin from 'tsconfig-paths-webpack-plugin';
 import {Configuration} from 'webpack';
 import webpackMerge from 'webpack-merge';
 
@@ -21,7 +22,12 @@ const common: Configuration = {
         clean: true
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.jsx', '.js']
+        extensions: ['.tsx', '.ts', '.jsx', '.js'],
+        plugins: [
+            new TSConfigPathsWebpackPlugin({
+                configFile: path.resolve(__dirname, './src/ts/tsconfig.json')
+            })
+        ]
     },
     module: {
         rules: [
@@ -136,7 +142,7 @@ const dev: Configuration = webpackMerge(common, {
         }),
         new ForkTSCheckerWebpackPlugin({
             async: true,
-            devServer: false,
+            devServer: true,
             typescript: {
                 configFile: path.resolve(__dirname, './src/ts/tsconfig.json')
             }
@@ -177,4 +183,39 @@ const prod: Configuration = webpackMerge(common, {
     ]
 });
 
-export default [dev, prod];
+/**
+ * The development configuration.
+ */
+const tests: Configuration = webpackMerge(common, {
+    name: 'tests',
+    mode: 'development',
+    devtool: 'inline-source-map',
+    resolve: {
+        plugins: [
+            new TSConfigPathsWebpackPlugin({
+                configFile: path.resolve(__dirname, './tests/tsconfig.json')
+            })
+        ]
+    },
+    module: {
+        rules: []
+    },
+    plugins: [
+        new ForkTSCheckerWebpackPlugin({
+            async: true,
+            devServer: false,
+            typescript: {
+                configFile: path.resolve(__dirname, './src/ts/tsconfig.json')
+            }
+        }),
+        new ForkTSCheckerWebpackPlugin({
+            async: true,
+            devServer: false,
+            typescript: {
+                configFile: path.resolve(__dirname, './tests/tsconfig.json')
+            }
+        })
+    ]
+});
+
+export default [dev, prod, tests];
