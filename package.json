@@ -27,15 +27,27 @@
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.59.0",
         "@typescript-eslint/parser": "^5.59.0",
+        "css-loader": "^6.7.3",
+        "cssnano": "^6.0.0",
         "eslint": "^8.39.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-tsdoc": "^0.2.17",
+        "eslint-webpack-plugin": "^4.0.1",
+        "fork-ts-checker-webpack-plugin": "^8.0.0",
+        "postcss": "^8.4.23",
+        "postcss-loader": "^7.2.4",
         "prettier": "^2.8.7",
+        "pug-plugin": "^4.9.7",
+        "sass": "^1.62.0",
+        "sass-loader": "^13.2.2",
+        "source-map-loader": "^4.0.1",
+        "ts-loader": "^9.4.2",
         "ts-node": "^10.9.1",
         "typescript": "^5.0.4",
         "webpack": "^5.80.0",
         "webpack-cli": "^5.0.2",
-        "webpack-dev-server": "^4.13.3"
+        "webpack-dev-server": "^4.13.3",
+        "webpack-merge": "^5.8.0"
     }
 }
