@@ -112,6 +112,11 @@ const dev: Configuration = webpackMerge(common, {
     name: 'dev',
     mode: 'development',
     devtool: 'inline-source-map',
+    devServer: {
+        port: 8080,
+        hot: false,
+        liveReload: false
+    },
     output: {
         path: path.resolve(__dirname, './dist/'),
         filename: 'js/app.[contenthash].js'
